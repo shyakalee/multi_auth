@@ -17,29 +17,56 @@ switch ($action) {
           new_permission();
           break;
           
-          case 'submit_assign_perrmission';
+          case 'assign_perrmission';
           approve_permissions();
           break;
 
         default:
         echo '404';
         //redirect(web_root."index.php");
-
 }
 
+
+function approve_permissions() 
+  {    
+    if(isset($_POST['assign_now'])) 
+    {
+      global $mydb;
+
+      $all_perms= new Assigned_permissions();      
+      $selections=$_POST['checkItems'];
+      for($i=0; $i < count($selections); $i++)
+       {
+         $group="1";        
+      
+        $sql= "INSERT INTO tbl_group_permissions(id_group, id_permission) VALUES ('$group' ,'$selections[$i]')";
+	      $mydb->setQuery($sql);	
+	      $mydb->executeQuery();   
+        redirect(web_root."index.php?route=assign_permission");
+        
+      // foreach($_POST['checkItems'] as $key=>$selections) {
+      //   print_r($selections[0]);        
+      // }
+    }
+  }
+}
 
 function register_user()
 {
   if(isset($_POST['send_datas']))
     {
-      $user=new User();
-      $user->id         = "";
-      $user->full_names = $_POST['firstname'];;
-      $user->id_group   = $_POST['group_val'];
-      $user->create();
-       redirect(web_root."index.php?route=user_register");
-    }   
-	
+      if (!empty($_POST['firstname'])&& !empty($_POST['group_val']) ) {
+        $user=new User();
+        $user->id         = "";
+        $user->full_names = $_POST['firstname'];;
+        $user->id_group   = $_POST['group_val'];
+        $user->create();
+        redirect(web_root."index.php?route=user_register");
+        } else {
+        // return false;
+          redirect(web_root."index.php?route=user_register");
+        }      
+    } 
 	}
 
   function save_group() 
@@ -66,8 +93,4 @@ function register_user()
     redirect(web_root."index.php?route=add_permission");
   }
 
-
-  function approve_permissions() {
-    echo "test perissions";
-  }
 }
