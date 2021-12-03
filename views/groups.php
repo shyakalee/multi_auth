@@ -23,6 +23,7 @@
                             <table class="table table-hover m-b-0">
                                 <thead>
                                     <tr>
+<<<<<<< HEAD
                                         <th>#Number</th>
                                         <th>Group Name</th>
                                         <th>Description</th>
@@ -48,6 +49,40 @@
                                         </td>
                                     </tr>
                                  <?php } ?>                       
+=======
+                                        <th>#NUMBER</th>
+                                        <th>GroupName</th>
+                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $count=0;
+                                          $string = "SELECT * FROM tbl_groups";
+                                          $mydb->setQuery($string);
+                                          $cur = $mydb->loadResultList();
+                                          foreach ($cur as $result) {                               
+                                        ?>
+                                    <tr>                                        
+                                        <td><?php echo htmlentities($count+=1) ?></td>
+                                        <td><a href="#" class="__cf_email__" ><?php echo $result->title ?></a></td>
+                                        <td><label class="#"><?php echo $result->description ?></label></td>
+                                        <td>
+                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
+                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
+                                            <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
+                                            <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
+                                        </td>
+                                        <td>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                        </td>
+                                        
+                                    </tr>                                 
+                                 <?php } ?>
+                                    
+>>>>>>> 3d58541707d6e0be27be38472d3511b559286d51
                                 </tbody>
                             </table>
                         </div>

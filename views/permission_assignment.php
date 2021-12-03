@@ -12,19 +12,28 @@
 
                         <div class="col-sm-10">
                             <form method="POST" action="">
+<<<<<<< HEAD
                                 <select name="select" id="select" class="form-control">
+=======
+                                <select name="select" class="form-control">
+                                    <option value="none" required disabled selected>****Select something****</option>
+>>>>>>> 3d58541707d6e0be27be38472d3511b559286d51
                                     <?php
                                     $string = "SELECT * FROM tbl_groups";
                                     $mydb->setQuery($string);
                                     $cur = $mydb->loadResultList();
                                     foreach ($cur as $result) {
+<<<<<<< HEAD
                                     ?>
                                         <option id="grps" value="<?php echo htmlentities($result->id) ?>"><?php echo htmlentities($result->title) ?></option>
+=======
+                                    ?>                                    
+                                        <option value="<?php echo htmlentities($result->id) ?>"><?php echo htmlentities($result->title) ?></option>
+>>>>>>> 3d58541707d6e0be27be38472d3511b559286d51
                                     <?php } ?>
                                 </select>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>

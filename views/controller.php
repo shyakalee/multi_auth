@@ -35,10 +35,15 @@ function approve_permissions()
 
       $all_perms= new Assigned_permissions();      
       $selections=$_POST['checkItems'];
+
       for($i=0; $i < count($selections); $i++)
        {
+<<<<<<< HEAD
          $group=$_POST['group_id'];       
       
+=======
+         $group="1";      
+>>>>>>> 3d58541707d6e0be27be38472d3511b559286d51
         $sql= "INSERT INTO tbl_group_permissions(id_group, id_permission) VALUES ('$group' ,'$selections[$i]')";
 	      $mydb->setQuery($sql);	
 	      $mydb->executeQuery();   
@@ -48,6 +53,8 @@ function approve_permissions()
       //   print_r($selections[0]);        
       // }
     }
+  } else {
+    echo "<script>alert('Please check something..')</script>";
   }
 }
 
