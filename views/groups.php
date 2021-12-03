@@ -23,39 +23,31 @@
                             <table class="table table-hover m-b-0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Customer</th>
+                                        <th>#Number</th>
+                                        <th>Group Name</th>
+                                        <th>Description</th>
                                         <th>Status</th>
-                                        <th>Rating</th>
+                                        <th>Action(s)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $count =0;
+                                    $string = "SELECT * FROM tbl_groups";
+                                    $mydb->setQuery($string);
+                                    $cur = $mydb->loadResultList();
+                                    foreach ($cur as $result) {
+                                    ?>
                                     <tr>
-                                        <td>Sofa</td>
-
-                                        <td><a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="29484b4a694e44484045074a4644">[email&#160;protected]</a></td>
-                                        <td><label class="label label-danger">Failed</label></td>
+                                        <td><?php echo $count+=1 ?></td>
+                                        <td><a href="#!" class="#" data-cfemail="#"><?php echo $result->title ?></a></td>
+                                        <td><a href="#!"><?php echo $result->description ?></a></td>
+                                        <td><a href="#!" class="label label-info ">Test Status</a></td>
                                         <td>
-                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
+                                            <a href="#!"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
-                                 
-                                 
-                                    <tr>
-                                        <td>Shoes</td>
-
-                                        <td><a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5b5b4b785a2a8a4aca9eba6aaa8">[email&#160;protected]</a></td>
-                                        <td><label class="label label-danger">Failed</label></td>
-                                        <td>
-                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
-                                            <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
-                                        </td>
-                                    </tr>
+                                 <?php } ?>                       
                                 </tbody>
                             </table>
                         </div>

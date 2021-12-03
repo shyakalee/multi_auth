@@ -37,7 +37,7 @@ function approve_permissions()
       $selections=$_POST['checkItems'];
       for($i=0; $i < count($selections); $i++)
        {
-         $group="1";        
+         $group=$_POST['group_id'];       
       
         $sql= "INSERT INTO tbl_group_permissions(id_group, id_permission) VALUES ('$group' ,'$selections[$i]')";
 	      $mydb->setQuery($sql);	

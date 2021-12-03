@@ -12,14 +12,14 @@
 
                         <div class="col-sm-10">
                             <form method="POST" action="">
-                                <select name="select" class="form-control">
+                                <select name="select" id="select" class="form-control">
                                     <?php
                                     $string = "SELECT * FROM tbl_groups";
                                     $mydb->setQuery($string);
                                     $cur = $mydb->loadResultList();
                                     foreach ($cur as $result) {
                                     ?>
-                                        <option value="<?php echo htmlentities($result->id) ?>"><?php echo htmlentities($result->title) ?></option>
+                                        <option id="grps" value="<?php echo htmlentities($result->id) ?>"><?php echo htmlentities($result->title) ?></option>
                                     <?php } ?>
                                 </select>
                             </form>
@@ -40,6 +40,7 @@
         <div class="card-block">
 
             <form method="POST" action="<?php echo $web_root ?>views/controller.php?action=assign_perrmission">
+            <input type="text" id="grp_id" name="group_id">
                 <div class="row">
                     <?php
                     $string = "SELECT * FROM tbl_permissions";
@@ -73,5 +74,33 @@
 
         </form>
     </div>
-
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+        $(document).ready(function(){
+            $('#grp_id').attr('hidden',true);
+            $('#select').change(function(e){  
+                event.preventDefault();                 
+                var groups=$(this).val();                
+                $('#grp_id').val(groups);
+        //============================================
+                $.ajax({ 
+                    type:"GET",   
+                    url:"<?php echo $web_root ?>views/seek_permissions.php",
+                    dataType: "html",                  
+                    success: function(data){                    
+                   // $("#table-container").html(data);
+                   console.log(data); 
+           
+        }
+            }  
+        });   
+        //console.log(groups); 
+        //===================================================
+                
+            });
+        });
+
+    </script> 

@@ -226,7 +226,7 @@
         </div>
     </div>
     <!-- ======================================================================================= -->
-    /vendor/scripts.php'; ?>
+
 
 <script data-cfasync="false" src="<?php echo web_root; ?>js/email-decode.min.js">
 </script><script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="<?php echo web_root; ?>js/jquery.min.js"></script>
