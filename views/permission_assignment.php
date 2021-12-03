@@ -13,18 +13,18 @@
                         <div class="col-sm-10">
                             <form method="POST" action="">
                                 <select name="select" class="form-control">
+                                    <option value="none" required disabled selected>****Select something****</option>
                                     <?php
                                     $string = "SELECT * FROM tbl_groups";
                                     $mydb->setQuery($string);
                                     $cur = $mydb->loadResultList();
                                     foreach ($cur as $result) {
-                                    ?>
+                                    ?>                                    
                                         <option value="<?php echo htmlentities($result->id) ?>"><?php echo htmlentities($result->title) ?></option>
                                     <?php } ?>
                                 </select>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>

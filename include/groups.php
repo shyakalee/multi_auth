@@ -11,6 +11,7 @@ class Group {
 	function all_groups(){
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM ".self::$tblname);
+		$cur = $mydb->executeQuery();
 		return $cur;
 	}
 	function find_group($id="",$name=""){
@@ -31,41 +32,16 @@ class Group {
 		$row_count = $mydb->num_rows($cur);
 		return $row_count;
 	}
-	static function cusAuthentication($email,$h_pass){
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM  ".self::$tblname."  WHERE `CUSUNAME` = '".$email."' and `CUSPASS` = '". $h_pass ."'");
-		$cur = $mydb->executeQuery();
-		if($cur==false){
-			die(mysql_error());
-		}
-		$row_count = $mydb->num_rows($cur);//get the number of count
-		 if ($row_count == 1){
-		 $user_found = $mydb->loadSingleResult();
-		 	$_SESSION['CUSID']   		= $user_found->CUSTOMERID;
-		 	$_SESSION['CUSNAME']      	= $user_found->FNAME . ' ' .$user_found->LNAME;
-		 	$_SESSION['CUSUNAME'] 		= $user_found->CUSUNAME; 
-		 	$_SESSION['CUSUPASS'] 		= $user_found->CUSPASS; 
-		   return true;
-		 }else{
-		 	return false;
-		 }
-	}
 	
 	 
 	function single_group($id=""){
 			global $mydb;
 			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where CUSTOMERID= {$id} LIMIT 1");
+				Where id= {$id} LIMIT 1");
 			$cur = $mydb->loadSingleResult();
 			return $cur;
 	}
-	function find_phone($phone=""){
-			global $mydb;
-			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where PHONE= {$phone} LIMIT 1");
-			$cur = $mydb->loadSingleResult();
-			return $cur;
-	}
+
 	/*---Instantiation of Object dynamically---*/
 	static function instantiate($record) {
 		$object = new self;
