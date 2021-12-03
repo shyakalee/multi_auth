@@ -38,6 +38,7 @@ switch ($view) {
                             break;
 
                             case 'add_permission':
+                                $title="Assign Permisiions";
                                 $contents='views/add_permission.php';
                                 break;
  	

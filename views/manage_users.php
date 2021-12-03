@@ -35,16 +35,16 @@
 
                                    <?php
                                    $count=0;
-                                   $mydb->setQuery("SELECT * 
-                                   FROM  `tbl_admin`");
+                                   $mydb->setQuery("SELECT tbl_admin.*, tbl_groups.* 
+                                   from tbl_admin inner JOIN tbl_groups on tbl_admin.id_group=tbl_groups.id");
                                      $cur = $mydb->loadResultList();
                                      foreach ($cur as $result) {
                                    ?>
                                     <tr>
-                                        <td><?php echo htmlentities($count+=1) ?></td>
+                                        <td><?php echo htmlentities($count += 1) ?></td>
                                         <td><?php echo htmlentities($result->full_names); ?></td>
                                         <td><a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e3d3a3d1e39333f3732703d3133">[email&#160;protected]</a></td>
-                                        <td><label class="label label-success"><?php echo htmlentities($result->id_group)?></label></td>
+                                        <td><label class="label label-success"><?php echo htmlentities($result->title)?></label></td>
                                         <td>
                                             <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
                                             <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
@@ -52,9 +52,11 @@
                                             <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
                                             <a href="#!"><i class="fa fa-star f-12 text-default"></i></a>
                                         </td>
-                                        <td><label class="label label-success">Edit</label></td>
+                                        <td>
+                                        <a href="#" class="btn btn-sm"><i class="fa fa-edit"></i></a>
+                                        </td>
                                     </tr>
-                                    <?php } $count ++ ?>                                   
+                                    <?php } ?>                                   
                                 </tbody>
                             </table>
                         </div>

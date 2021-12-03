@@ -39,7 +39,7 @@
         </div>
         <div class="card-block">
 
-            <form method="POST" action="<?php echo $web_root ?>views/controller.php?action=save_assign">
+            <form method="POST" action="<?php echo $web_root ?>views/controller.php?action=assign_perrmission">
                 <div class="row">
                     <?php
                     $string = "SELECT * FROM tbl_permissions";
@@ -52,7 +52,7 @@
 
                             <div class="border-checkbox-section">
                                 <div class="border-checkbox-group border-checkbox-group-primary">
-                                    <input type="checkbox" id="checkbox<?php echo $result->id ?>" class="border-checkbox" name="checkItem[]" value="<?php echo $result->id ?>">
+                                    <input type="checkbox" id="checkbox<?php echo $result->id ?>" class="border-checkbox" name="checkItems[]" value="<?php echo $result->id ?>">
                                     <label class="border-checkbox-label" for="checkbox<?php echo $result->id ?>"><?php echo $result->description ?></label>
                                 </div>
                             </div>
@@ -71,13 +71,7 @@
                 </div>
         </div>
 
- 
-
-
-
         </form>
     </div>
 
 </div>
-
-

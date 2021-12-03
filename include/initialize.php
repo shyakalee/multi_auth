@@ -16,13 +16,11 @@ defined('LIB_PATH') ? null : define ('LIB_PATH',SITE_ROOT.DS.'include');
 require_once(LIB_PATH.DS."config.php");
 require_once(LIB_PATH.DS."database.php");
 require_once(LIB_PATH.DS."functions.php");
+require_once(LIB_PATH.DS."assigned_permissions.php");
 require_once(LIB_PATH.DS."sessions.php");
 require_once(LIB_PATH.DS."groups.php");
-require_once(LIB_PATH.DS."assignment.php");
 require_once(LIB_PATH.DS."permissions.php");
 require_once(LIB_PATH.DS."users.php");
-
-
 
 
 //mydb configurations

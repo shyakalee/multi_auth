@@ -1,6 +1,6 @@
 <?php
 require_once(LIB_PATH.DS.'database.php');
-class Assignment {
+class Assigned_permissions {
 	protected static  $tblname = "tbl_group_permissions";
 
 	function dbfields () {
@@ -8,64 +8,8 @@ class Assignment {
 		return $mydb->getfieldsononetable(self::$tblname);
 
 	}
-	function all_users(){
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM ".self::$tblname);
-		return $cur;
-	}
-	function find_customer($id="",$name=""){
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-			WHERE CUSTOMERID = {$id} OR FNAME = '{$name}'");
-		$cur = $mydb->executeQuery();
-		$row_count = $mydb->num_rows($cur);
-		return $row_count;
-	}
-
- 
-	function find_all_customer($name=""){
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-			WHERE FNAME = '{$name}'");
-		$cur = $mydb->executeQuery();
-		$row_count = $mydb->num_rows($cur);
-		return $row_count;
-	}
-	static function cusAuthentication($email,$h_pass){
-		global $mydb;
-		$mydb->setQuery("SELECT * FROM  ".self::$tblname."  WHERE `CUSUNAME` = '".$email."' and `CUSPASS` = '". $h_pass ."'");
-		$cur = $mydb->executeQuery();
-		if($cur==false){
-			die(mysql_error());
-		}
-		$row_count = $mydb->num_rows($cur);//get the number of count
-		 if ($row_count == 1){
-		 $user_found = $mydb->loadSingleResult();
-		 	$_SESSION['CUSID']   		= $user_found->CUSTOMERID;
-		 	$_SESSION['CUSNAME']      	= $user_found->FNAME . ' ' .$user_found->LNAME;
-		 	$_SESSION['CUSUNAME'] 		= $user_found->CUSUNAME; 
-		 	$_SESSION['CUSUPASS'] 		= $user_found->CUSPASS; 
-		   return true;
-		 }else{
-		 	return false;
-		 }
-	}
-	
 	 
-	function single_customer($id=""){
-			global $mydb;
-			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where CUSTOMERID= {$id} LIMIT 1");
-			$cur = $mydb->loadSingleResult();
-			return $cur;
-	}
-	function find_phone($phone=""){
-			global $mydb;
-			$mydb->setQuery("SELECT * FROM ".self::$tblname." 
-				Where PHONE= {$phone} LIMIT 1");
-			$cur = $mydb->loadSingleResult();
-			return $cur;
-	}
+	
 	/*---Instantiation of Object dynamically---*/
 	static function instantiate($record) {
 		$object = new self;
