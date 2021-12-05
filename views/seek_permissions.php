@@ -1,3 +1,4 @@
 <?php
-echo "Test from ajax script";
+$groups="12345";
+echo $groups;
 ?>
