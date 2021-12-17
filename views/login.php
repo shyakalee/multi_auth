@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-sm-12">
 
-                    <form class="md-float-material form-material">
+                    <form class="md-float-material form-material" method="post" action="!#">
                         <div class="text-center">
                             <img src="png/logo.png" alt="logo.png">
                         </div>

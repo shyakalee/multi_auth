@@ -43,7 +43,7 @@ switch ($view) {
                                 break;
  	
 	default :
-	    $title="Dashboard";	
+	    $title="Login | Signup";	
 		$contents='views/home.php';			
 
 }
