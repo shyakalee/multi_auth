@@ -22,6 +22,14 @@ class User {
 		return $row_count;
 	}
 
+	function checkAuthentication($session) {
+		if(!isset($session)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
  
 	function find_all_customer($name=""){
 		global $mydb;
@@ -31,9 +39,9 @@ class User {
 		$row_count = $mydb->num_rows($cur);
 		return $row_count;
 	}
-	static function cusAuthentication($email,$h_pass){
+	static function Authenticate($username,$h_pass){
 		global $mydb;
-		$mydb->setQuery("SELECT * FROM  ".self::$tblname."  WHERE `CUSUNAME` = '".$email."' and `CUSPASS` = '". $h_pass ."'");
+		$mydb->setQuery("SELECT * FROM  ".self::$tblname."  WHERE `username` = '".$username."' and `password` = '". $h_pass ."'");
 		$cur = $mydb->executeQuery();
 		if($cur==false){
 			die(mysql_error());
@@ -41,10 +49,11 @@ class User {
 		$row_count = $mydb->num_rows($cur);//get the number of count
 		 if ($row_count == 1){
 		 $user_found = $mydb->loadSingleResult();
-		 	$_SESSION['CUSID']   		= $user_found->CUSTOMERID;
-		 	$_SESSION['CUSNAME']      	= $user_found->FNAME . ' ' .$user_found->LNAME;
-		 	$_SESSION['CUSUNAME'] 		= $user_found->CUSUNAME; 
-		 	$_SESSION['CUSUPASS'] 		= $user_found->CUSPASS; 
+		 	$_SESSION['id']   		= $user_found->id;
+		 	$_SESSION['full_names']      	= $user_found->full_names;
+			$_SESSION['id_group']      	= $user_found->id_group;
+			$_SESSION['username']      	= $user_found->username;
+
 		   return true;
 		 }else{
 		 	return false;

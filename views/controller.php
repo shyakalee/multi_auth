@@ -61,8 +61,10 @@ function register_user()
       if (!empty($_POST['firstname'])&& !empty($_POST['group_val']) ) {
         $user=new User();
         $user->id         = "";
-        $user->full_names = $_POST['firstname'];;
+        $user->full_names = $_POST['firstname']. " ".$_POST['lastname'];
         $user->id_group   = $_POST['group_val'];
+        $user->username   = $_POST['username'];
+        $user->password   = $_POST['password'];
         $user->create();
         redirect(web_root."index.php?route=user_register");
         } else {

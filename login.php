@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <?php require_once ("include/initialize.php"); ?>
 <!-- Mirrored from colorlib.com/polygon/admindek/default/auth-sign-in-social.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:30 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-sm-12">
 
-                    <form class="md-float-material form-material">
+                    <form class="md-float-material form-material" method="POST" action="#">
                         <div class="text-center">
                             <img src="png/logo.png" alt="logo.png">
                         </div>
@@ -121,7 +121,7 @@
                                 </div>
                                 <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                                 <div class="form-group form-primary">
-                                    <input type="text" name="user-name" class="form-control" required="">
+                                    <input type="text" name="username" class="form-control" required="">
                                     <span class="form-bar"></span>
                                     <label class="float-label">Username</label>
                                 </div>
@@ -140,13 +140,13 @@
                                             </label>
                                         </div>
                                         <div class="forgot-phone text-right float-right">
-                                            <a href="auth-reset-password.html" class="text-right f-w-600"> Forgot Password?</a>
+                                            <a href="#" class="text-right f-w-600"> Forgot Password?</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
+                                        <button type="submit" name="login_btn" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">LOGIN</button>
                                     </div>
                                 </div>
                                 <p class="text-inverse text-left">Don't have an account?<a href="auth-sign-up-social.html"> <b>Register here </b></a>for free!</p>
@@ -161,6 +161,20 @@
         </div>
 
         </div>
+        <?php
+        if(isset($_POST['login_btn'])) {
+            $username=trim($_POST['username']);
+            $pwd=trim($_POST['password']);
+
+            $user=new User();
+            $result= $user::Authenticate($username,$pwd);
+            if($result==true) {
+                redirect(web_root."index.php?home");
+                // echo "<script>alert('true')</script>" ;
+            }
+        }
+        
+        ?>
 
     </section>
 

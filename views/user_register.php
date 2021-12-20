@@ -20,14 +20,21 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">First name</label>
                                         <div class="col-sm-10">
-                                            <input type="text"  name="firstname" class="form-control form-control-round" placeholder="Please fill user information">
+                                            <input type="text"  name="firstname" class="form-control form-control-round" placeholder="Please fill firstname information">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Last name</label>
                                         <div class="col-sm-10">
-                                            <input type="text"  name="lastname" class="form-control form-control-round" placeholder="Please fill user information">
+                                            <input type="text"  name="lastname" class="form-control form-control-round" placeholder="Please fill lastname information">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Username</label>
+                                        <div class="col-sm-10">
+                                            <input type="text"  name="username" class="form-control form-control-round" placeholder="Please fill username">
                                         </div>
                                     </div>
 
@@ -46,6 +53,13 @@
                                                 <?php } ?>                                           
                                             </select>
                                             
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password"  name="password" class="form-control form-control-round" placeholder="****************">
                                         </div>
                                     </div>
                                 

@@ -24,9 +24,10 @@
                                 <thead>
                                     <tr>
                                         <th>#Record</th>
-                                        <th>User Names</th>
+                                        <th>Full Names</th>
                                         <th>email</th>
                                         <th>Group</th>
+                                        <th>Username</th>
                                         <th>Rating</th>
                                         <th>Action</th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <td><?php echo htmlentities($result->full_names); ?></td>
                                         <td><a href="https://colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e3d3a3d1e39333f3732703d3133">[email&#160;protected]</a></td>
                                         <td><label class="label label-success"><?php echo htmlentities($result->title)?></label></td>
+                                        <td><a href="#" class="#"><?php echo htmlentities($result->username)?></a></td>
                                         <td>
                                             <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>
                                             <a href="#!"><i class="fa fa-star f-12 text-c-yellow"></i></a>

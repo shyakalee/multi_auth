@@ -181,6 +181,32 @@
                 <div class="pcoded-wrapper">
                 <!-- ======================================================================================= -->
                 <?php include 'views/toolbars/navbar.php'; ?>
+                
+                <?php
+
+                require_once("include/initialize.php");
+
+                $sql = "select * from tbl_admin where id = '" . $_SESSION["id"] . "'";
+                $mydb->setQuery($sql);
+                // $mydb->executeQuery();
+                // $result=loadResultList();
+               
+                // check permissions assigned to a group
+               // $q = "select * from tbl_group_permissions where group_id='" . $row1['group_id'] . "'";
+               // $ress = $mydb->setQuery($q);
+
+                // /$name = array();
+                // check permissions list according to user group
+                // while ($row = mysqli_fetch_array($ress)) {
+                //     $sql = "select * from tbl_permissions where id = '" . $row['permission_id'] . "'";
+                //     $result = $mydb->setQuery($sql);
+                //     $row1 = mysqli_fetch_array($result);
+                //     array_push($name, $row1[1]);
+                // }
+                // $_SESSION['name'] = $name;
+                // $useroles = $_SESSION['name'];
+                ?>
+                
                 <!-- ======================================================================================= -->
 
                     <div class="pcoded-content">

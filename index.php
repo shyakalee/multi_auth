@@ -2,8 +2,15 @@
 
 require_once ("include/initialize.php");
 
+$user = new User();
+@$result=$user::checkAuthentication($_SESSION['username']);
+if(!$result) {
+    redirect(web_root.'login.php?login=true');
+}
+
 $contents='home.php';
 $view = (isset($_GET['route']) && $_GET['route'] != '') ? $_GET['route'] : '';
+
 
 switch ($view) {
  
@@ -43,7 +50,7 @@ switch ($view) {
                                 break;
  	
 	default :
-	    $title="Login | Signup";	
+        $title="Dashboard";		
 		$contents='views/home.php';			
 
 }
