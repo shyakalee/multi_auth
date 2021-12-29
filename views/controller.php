@@ -21,9 +21,13 @@ switch ($action) {
           approve_permissions();
           break;
 
+                case 'test_id';
+                return_id();
+                break;
+
         default:
-        echo '404';
-        //redirect(web_root."index.php");
+        //echo '404';
+        redirect(web_root."index.php");
 }
 
 
@@ -98,4 +102,13 @@ function register_user()
     redirect(web_root."index.php?route=add_permission");
   }
 
+}
+
+function return_id($id) 
+{
+  $user=new User();
+  $disp=$user->pass_id($id);
+  print_r($disp);
+  // echo "<script>alert($disp) </script>";
+  return $disp;
 }

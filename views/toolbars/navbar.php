@@ -75,7 +75,7 @@
                                                 </a>
                                             </li> 
                                             <li class=" ">
-                                                <a href="#" class="waves-effect waves-dark">
+                                                <a href="index.php?route=view_rights" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">All Permissions</span>
                                                 </a>
                                             </li>                                          

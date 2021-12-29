@@ -6,8 +6,12 @@ class User {
 	function dbfields () {
 		global $mydb;
 		return $mydb->getfieldsononetable(self::$tblname);
-
 	}
+
+	function pass_id($id) {
+		return $id;
+	}
+
 	function all_users(){
 		global $mydb;
 		$mydb->setQuery("SELECT * FROM ".self::$tblname);

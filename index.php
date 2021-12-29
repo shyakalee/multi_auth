@@ -48,6 +48,16 @@ switch ($view) {
                                 $title="Assign Permisiions";
                                 $contents='views/add_permission.php';
                                 break;
+
+                                case 'view_rights':
+                                    $title="Details***";
+                                    $contents='views/details.php';
+                                    break;
+
+                                case 'single-item':
+                                    $title="*********";
+                                    $contents='views/single-item.php';
+                                    break;
  	
 	default :
         $title="Dashboard";		
